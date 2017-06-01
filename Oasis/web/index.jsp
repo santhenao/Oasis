@@ -12,10 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="DepMun.jsp" ><button>DepMun</button></a>  <br>   
-        <a href="Proveedor.jsp" ><button>Proveedor</button></a>   <br>     
-        <a href="EstaPedProve.jsp" ><button>EstaPedProve</button></a>
-        <a href="MatePrim.jsp" ><button>MatePrim</button></a>
-          
+       <% 
+       request.getRequestDispatcher("Menu.jsp").forward(request, response);
+       %>          
     </body>
 </html>
