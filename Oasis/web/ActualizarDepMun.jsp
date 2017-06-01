@@ -8,6 +8,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!int Parametro;
+//hola Mundo
+
     BeanDepMun BDepMun = new BeanDepMun();
     DaoDepMun DDepMun = new DaoDepMun(BDepMun);
     int c = 0;
