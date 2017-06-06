@@ -57,11 +57,17 @@
                 <li ><a ><i class="icono izquierda fa fa-cart-arrow-down" aria-hidden="true"></i> Materia Prima<i class="icono derecha fa fa-arrow-down" aria-hidden="true"></i></a>
                     <ul>
                         <li ><a class="sublista" href="AgregarMatePrim.jsp">Agregar </a></li>
-                        <li ><a class="sublista" href="ListarMatePrim.jsp">Listar </a></li>
+                        <li ><a class="sublista" href="ListarMatePrim.jsp">Listar </a></li>                       
+                    </ul>
+                </li>
+                    <li ><a ><i class="icono izquierda fa fa-user" aria-hidden="true"></i>Pedidos Proveedor<i class="icono derecha fa fa-arrow-down" aria-hidden="true"></i></a>
+                    <ul>
+                   
                          <li ><a class="sublista" href="AgregarCateMatePrim.jsp">Agregar Categoria </a></li>
                           <li ><a class="sublista" href="ListarCateMatePrim.jsp">Listar Categoria</a></li>
                     </ul>
                 </li> 
+                
                 
                 
                 
