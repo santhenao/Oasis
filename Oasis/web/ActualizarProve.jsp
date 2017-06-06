@@ -56,6 +56,11 @@
                 DirecProve =BProve.getDirecProve();
                 
         %>
+        
+          <jsp:include page="Menu.jsp"></jsp:include>
+            
+        <div class="col-md-9">   
+        
         <form action="Prove" method="POST" >
 
 
@@ -125,12 +130,12 @@
             </table>
  </center>
         </form>  
-   
+        </div>   
 
 
 
 </body>     
-</form
+
 
 
      

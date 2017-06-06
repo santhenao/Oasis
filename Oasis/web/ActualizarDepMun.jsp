@@ -36,6 +36,11 @@
                 NomDep = BDepMun.getNomDep();
                 NomMun = BDepMun.getNomMun();
         %>
+       
+        <jsp:include page="Menu.jsp"></jsp:include>
+            
+        <div class="col-md-9">
+        
         <form action="DepMun" method="POST" >
 
 
@@ -65,6 +70,7 @@
             </table>
 
         </form>  
+       </div>
     </center>
 
 
