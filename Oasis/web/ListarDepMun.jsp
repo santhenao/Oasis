@@ -9,22 +9,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Modificar DepMun</title>
+        
+        
+    <title>Modificar DepMun</title>
     </head>
     <body>
         
         <%!int Parametro;%>
       
-
-        <center>
-            
-            <h1>Lista DepMun</h1>
-            <font face="Tahoma">
-             <table border="3">
+        
+      
+         <jsp:include page="Menu.jsp"></jsp:include>
+   
+        <div class="col-md-9">  
+       
+             <table class="table">
                         <tr>
                              <th>Codigo   </th>
                              <th>Departamento </th>   
-                             <th>Nombre Municipio  </th>
+                             <th>Municipio  </th>
                         </tr>
                       
                         <%
@@ -36,13 +39,13 @@
                         BDepMun=ListaDepMun.get(c);                        
                         %>
                         <tr>
-                             <th><%=BDepMun.getIdDepMun()%></th>
-                             <th><%=BDepMun.getNomDep()%> </th>
-                             <th><%=BDepMun.getNomMun()%> </th>
-                             <th><form action='ActualizarDepMun.jsp' method='post'>
+                             <td><%=BDepMun.getIdDepMun()%></td>
+                             <td><%=BDepMun.getNomDep()%> </td>
+                             <td><%=BDepMun.getNomMun()%> </td>
+                             <td><form action='ActualizarDepMun.jsp' method='post'>
                                      <input name="idDepMun" type="hidden" value='<%=BDepMun.getIdDepMun()%>'><button type="submit">MODIFICAR</button>
                              </form>
-                             </th>
+                             </td>
                              
                              
                         </tr>    
@@ -56,9 +59,8 @@
           
                 
            
-      
-            </font>
-        </center>
+        </div>
+       
                       
              
                  

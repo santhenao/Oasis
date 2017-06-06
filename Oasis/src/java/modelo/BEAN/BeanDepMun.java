@@ -35,7 +35,7 @@ public class BeanDepMun {
         this.NomDep = NomDep;
     }
     public String getNomMun() {
-        return NomMun;
+         return NomMun;
     }
     
     public void setNomMun(String NomMun) {

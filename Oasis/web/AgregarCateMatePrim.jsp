@@ -1,7 +1,7 @@
 <%-- 
     Document   : AgregarCateMatePrim
-    Created on : 7/05/2017, 10:16:08 PM
-    Author     : Ivonne Andrea Dorado
+    Created on : 5/06/2017, 10:56:59 PM
+    Author     : Santiagoth
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,44 +9,58 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>REGISTRAR </title>
+        
+        
+                  <!-- Latest compiled and minified CSS -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     
+           <link href="font-Awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Yantramanav" rel="stylesheet">
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+      
     </head>
     <body>
-    <center>
-        <font face="Tahoma">
-        <h2>REGISTRAR CATEMATEPRIMN</h2>
-        </font>
-    </center>
-    <form method="post" action="CateMatePrim">
-        <center>
-            <font face="Tahoma">
-            <table border="3">
-               
+        
+       <form method="post" action="CateMatePrim">
+        <jsp:include page="Menu.jsp"></jsp:include>
+            
+        <div class="col-md-9">    
+            
+            <table class="table-bordered">
+              
                 <tr>
-                    <th>Nombre Categoria Materia Prima<br>
-                        <input type="text" name="txtNomCateMatePrim"><br>
-                    </th>
+                    <td>Nombre</td>
+                    <td>    <input type="text" name="txtNomCateMatePrim">   </td>
                 </tr>
                  <tr>
-                    <th>Descripcion categoria Materia Prima<br>
-                        <input type="text" name="txtDescriCateMatePrim"><br>
-                    </th>
+                    <td>Descripcion</td>
+                     <td>   <input type="text" name="txtDescriCateMatePrim"></td>
                 </tr>
+                 <tr>
+                    <td></td>
+                   <td><button type="submit">Registrar</button> </td>
+                </tr>
+                
             </table>
-            <button>Registrar</button><br>
+            </div>
+            <input type="hidden"  value="0" name="txtidCateMatePrim">
             <input type="hidden" name="txtOpcion" value="1">
            
             
-            <a href="ModificarCateMatePrim.jsp">Modificar</a>
-            </font>
-        </center>
+        
+      
     </form>
      <%if (request.getAttribute("exito")!= null ){ %>
             ${exito}
             <%}
             else if (request.getAttribute("error")!=null) {%>
             ${error}
-            <%}%>
-</body>
+            <%}%> 
+        
+       
+    </body>
 </html>
-

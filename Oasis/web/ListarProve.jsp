@@ -6,22 +6,29 @@
 <%@page import="modelo.BEAN.BeanDepMun"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar Proveedores</title>
+        
+        
+        
+        
+        
     </head>
     <body>
 
 
 
-
-    <center>
-
-        <h1>Lista Proveedores</h1>
-        <font face="Tahoma">
-        <table border="1">
+<jsp:include page="Menu.jsp"></jsp:include>
+   
+        <div class="col-md-9">
+          
+          
+       
+        <table class="table" >
             <tr>
                 <th>Nombre Compañia</th>
                 <th>NIT</th>
@@ -35,11 +42,15 @@
 
 
             </tr>
-            <%!BeanProve BProve = new BeanProve();
-                            DaoProve DProve = new DaoProve(BProve);%>
+            <%!
+            BeanProve BProve = new BeanProve();
+            BeanDepMun BDepMun = new BeanDepMun();
+            DaoDepMun DDepMun = new DaoDepMun(BDepMun);
+            DaoProve DProve = new DaoProve(BProve);%>
             <%
 
                 ArrayList<BeanProve> ListaProve = DProve.Lista();
+                ArrayList<BeanDepMun> ListaDepMun = DDepMun.lista();
                 int c = 0;
                 while (c < ListaProve.size()) {
                     BProve = ListaProve.get(c);
@@ -49,18 +60,26 @@
             <tr>  
 
 
-                <th><%=BProve.getNomCompProve()%> </th>
-                <th><%= BProve.getNITProve()%> </th>
-                <th><%= BProve.getCorreoProve()%></th>
-                <th><%= BProve.getTelfProve()%></th>
-                <th><%=  BProve.getDirecProve()%></th>              
-                <th><%=BProve.getDepMun()%> </th>  
-                <th><%=BProve.getNomProve()%> </th>
-                <th><%= BProve.getApellProve()%> </th>
+                <td><%=BProve.getNomCompProve()%> </td>
+                <td><%= BProve.getNITProve()%> </td>
+                 <td><%= BProve.getTelfProve()%></td>
+                <td><%= BProve.getCorreoProve()%></td>              
+                <td><%=  BProve.getDirecProve()%></td>              
+                   <%
+                    int i=0;
+                    while(i < ListaDepMun.size()){
+                    BDepMun = ListaDepMun.get(i);
+                %>
+                
+                <% if (BProve.getDepMun()==BDepMun.getIdDepMun()){%> 
+                <td><%= BDepMun.getNomMun()%></td>
+                <%}i++;}%> 
+                <td><%=BProve.getNomProve()%> </td>
+                <td><%= BProve.getApellProve()%> </td>
 
 
 
-                <th>
+                <td>
                     <form method="post" action="ActualizarProve.jsp">
 
                         <input type="hidden" name="idProve" value="<%=BProve.getIdProve()%>"><button type="submit">Modificar</button>   
@@ -68,7 +87,7 @@
                     </form>
 
 
-                </th>
+                </td>
             </tr>    
 
 
@@ -83,7 +102,7 @@
 
         <a href="ActualizarProve.jsp">Modificar</a>
         </font>
-    </center>
+    </div>
 
 
 

@@ -9,20 +9,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista EstadoPedidoProveedor</title>
+        
+ 
+        
+        
+        <title>Lista</title>
     </head>
     <body>
       
+        <jsp:include page="Menu.jsp"></jsp:include>
+            
+        <div class="col-md-9">    
 
-
-        <center>
-              <h1>Lista EstadoPedidoProveedor</h1>
-            <font face="Tahoma">
-             <table border="3">
+                    <table class="table">
                         <tr>
                              <th>Codigo</th>
                              <th>Estado</th>   
-                            
+                             <th>Accion</th>   
                         </tr>
                       
                         <%
@@ -34,16 +37,16 @@
                         BEstaPedProve=ListaEstaPedProve.get(c);                        
                         %>
                         <tr>
-                             <th><%=BEstaPedProve.getIdEstaPedProve()%></th>
-                             <th><%=BEstaPedProve.getNomEstaPedProve()%> </th>
-                             <th>
+                             <td><%=BEstaPedProve.getIdEstaPedProve()%></td>
+                             <td><%=BEstaPedProve.getNomEstaPedProve()%> </td>
+                             <td>
                                  <form method="POST" action="ActualizarEstaPedProve.jsp">
                                          
                                            <input type="hidden" name="idEstaPedProve" value="<%=BEstaPedProve.getIdEstaPedProve()%>"><button type="submit">Modificar</button> 
                                  
                                  </form>
                                  
-                                </th>
+                                </td>
 
                            
                         </tr>    
@@ -57,8 +60,7 @@
           
                 
     
-            </font>
-        </center>
+        </div>
  
 
         

@@ -14,7 +14,11 @@ public class BeanCateMatePrim {
         this.NomCateMatePrim = NomCateMatePrim;
         this.DescriCateMatePrim = DescriCateMatePrim;
     }
-    
+
+    public BeanCateMatePrim() {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     public int getIdCateMatePrim() {
         return idCateMatePrim;

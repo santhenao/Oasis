@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -12,16 +12,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.BEAN.BeanMatePrim;
-import modelo.DAO.DaoMatePrim;
-
+import modelo.BEAN.BeanCateMatePrim;
+import modelo.DAO.DaoCateMatePrim;
 
 /**
  *
  * @author Santiagoth
  */
-@WebServlet(name = "ServletMatePrim", urlPatterns = {"/MatePrim"})
-public class ServletMatePrim extends HttpServlet {
+@WebServlet(name = "ServletCateMatePrim", urlPatterns = {"/CateMatePrim"})
+public class ServletCateMatePrim extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,46 +34,48 @@ public class ServletMatePrim extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+       PrintWriter out = response.getWriter();
+       int Opcion = 0;
+       int idCateMatePrim=0;
+       String NomCateMatePrim=null;
+       String DescriCateMatePrim=null;
+       
+       idCateMatePrim =  Integer.parseInt(request.getParameter("txtidCateMatePrim"));
+       NomCateMatePrim = request.getParameter("txtNomCateMatePrim");
+       DescriCateMatePrim = request.getParameter("txtDescriCateMatePrim");
+       Opcion =  Integer.parseInt(request.getParameter("txtOpcion"));
+       
+       
+       BeanCateMatePrim BCateMatePrim = new BeanCateMatePrim(idCateMatePrim, NomCateMatePrim, DescriCateMatePrim);
+       DaoCateMatePrim DCateMatePrim =  new DaoCateMatePrim(BCateMatePrim);
+       
+       switch(Opcion){
         
-        int idMatePrim=0;
-        int idCateMatePrim=0;
-        String NomMatePrim=null;
-        String ContMatePrim=null;
-        Double PreciUnidMatePrim=0.0;
-        String FechIngrMatePrim=null;
-        String FechVencMatePrim=null;
-        Double CantMatePrim=0.0;
-        int Opcion=0;
-        
-        
-        
-           Opcion = Integer.parseInt(request.getParameter("txtOpcion"));
-        idMatePrim = Integer.parseInt(request.getParameter("txtidMatePrim"));
-        idCateMatePrim= Integer.parseInt(request.getParameter("txtidCateMatePrim"));
-        NomMatePrim =  request.getParameter("txtNomMatePrim");
-         ContMatePrim =  request.getParameter("txtContMatePrim");
-         PreciUnidMatePrim= Double.valueOf(request.getParameter("txtPreciUnidMatePrim"));
-         FechIngrMatePrim=  request.getParameter("txtFechIngrMatePrim");
-           FechVencMatePrim =  request.getParameter("txtFechVencMatePrim");
-        CantMatePrim = Double.valueOf(request.getParameter("txtCantMatePrim"));
-        
-        BeanMatePrim BMatePrim =  new BeanMatePrim(idMatePrim, idCateMatePrim, NomMatePrim, ContMatePrim, PreciUnidMatePrim, FechIngrMatePrim, FechVencMatePrim, CantMatePrim);
-        DaoMatePrim DMatePrim =  new DaoMatePrim(BMatePrim);
-        
-        
-        switch(Opcion){
-            case 1: if (DMatePrim.Agregar()) {}
- 
-            break;
+            case 1://Agregar 
+                if (DCateMatePrim.Agregar()) {
+                    request.setAttribute("exito", "<script> alert('Registro Exitoso')</script>");                       
+                } else {
+                    request.setAttribute("error", "<script> alert('Registro Fallido')</script>");
+                }
+                request.getRequestDispatcher("AgregarCateMatePrim.jsp").forward(request, response);
+                break;
+            
+            case 2://Modificar
+                if (DCateMatePrim.Modificar()) {
+                    request.setAttribute("exito", "<script> alert('Modificado Exitosamente')</script>");
+                } else {
+                    request.setAttribute("error", "<script> alert('Modificacion No Exitosamente')</script>");
+                }
+                request.getRequestDispatcher("ListarCateMatePrim.jsp").forward(request, response);
+                break;    
+                
+            
+       
         }
         
-        
-        
-        
-        
-        
-        
+       
+       
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
