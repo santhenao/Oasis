@@ -53,6 +53,8 @@ public class DaoMatePrim extends Conexion implements InterfaceCRUD {
             Puente.executeUpdate("insert into MatePrim (CateMatePrim_idCateMatePrim,NomMatePrim,ContMatePrim,PreciUnidMatePrim,FechIngrMatePrim,FechVencMatePrim,CantMatePrim) values (" + idCateMatePrim + ",'" + NomMatePrim + "','" + ContMatePrim + "'," + PreciUnidMatePrim + ",'" + FechIngrMatePrim + "','" + FechVencMatePrim + "'," + CantMatePrim + ")");
             listo = true;
         } catch (SQLException e) {
+
+            Logger.getLogger(DaoMatePrim.class.getName()).log(Level.SEVERE, null, e);
         }
         return listo;
     }
@@ -60,16 +62,44 @@ public class DaoMatePrim extends Conexion implements InterfaceCRUD {
     @Override
     public boolean Modificar() {
         try {
-
+            Puente.executeUpdate("update MatePrim set CateMatePrim_idCateMatePrim = "+idCateMatePrim+", NomMatePrim = '"+NomMatePrim+"', ContMatePrim = '"+ContMatePrim+"', PreciUnidMatePrim = "+PreciUnidMatePrim+", FechIngrMatePrim = '"+FechIngrMatePrim+"', FechVencMatePrim = '"+FechVencMatePrim+"', CantMatePrim = "+CantMatePrim+" where idMatePrim ="+idMatePrim);
+            listo = true;
         } catch (Exception e) {
+            Logger.getLogger(DaoMatePrim.class.getName()).log(Level.SEVERE, null, e);
         }
         return listo;
+    }
+
+    public BeanMatePrim Consultar(int parametro) {
+        BeanMatePrim BMatePrim = new BeanMatePrim();
+        try {
+
+            rs = Puente.executeQuery("Select * from MatePrim where idMatePrim=" + parametro);
+
+            while (rs.next()) {
+
+                BMatePrim.setIdMatePrim(rs.getInt("idMatePrim"));
+                BMatePrim.setIdCateMatePrim(rs.getInt("CateMatePrim_idCateMatePrim"));
+                BMatePrim.setNomMatePrim(rs.getString("NomMatePrim"));
+                BMatePrim.setContMatePrim(rs.getString("ContMatePrim"));
+                BMatePrim.setPreciUnidMatePrim(rs.getDouble("PreciUnidMatePrim"));
+                BMatePrim.setFechIngrMatePrim(rs.getString("FechIngrMatePrim"));
+                BMatePrim.setFechVencMatePrim(rs.getString("FechVencMatePrim"));
+                BMatePrim.setCantMatePrim(rs.getDouble("CantMatePrim"));
+            }
+
+        } catch (Exception e) {
+
+            Logger.getLogger(DaoMatePrim.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return BMatePrim;
+
     }
 
     public ArrayList<BeanMatePrim> Listar() {
         ArrayList<BeanMatePrim> ListaMatePrim = new ArrayList<BeanMatePrim>();
         try {
-             
 
             rs = Puente.executeQuery("Select * from MatePrim");
 
@@ -88,7 +118,7 @@ public class DaoMatePrim extends Conexion implements InterfaceCRUD {
             }
 
         } catch (Exception e) {
-              System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
             Logger.getLogger(DaoProve.class.getName()).log(Level.SEVERE, null, e);
         }
 

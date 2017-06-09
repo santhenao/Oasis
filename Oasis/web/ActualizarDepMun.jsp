@@ -20,10 +20,16 @@
 
 
 
+
+ 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="JqueryUI/jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+        <link href="JqueryUI/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="js/DepMun.js" type="text/javascript"></script>
         <title>Actualizar</title>
     </head>
     <body>
@@ -50,15 +56,15 @@
 
                 <tr>
                     <td>Codigo:</td>  
-                    <td><input type="text" value="<%=idDepMun%>" name="txtidDepMun" readonly=""></input></td>  
+                    <td><input type="text" value="<%=idDepMun%>" name="txtidDepMun" readonly="readonly" style="background-color:#DBDBDB "></input></td>  
                 </tr>
                 <tr>
                     <td>Departamento:</td>  
-                    <td><input type="text" value="<%=NomDep%>" name="txtNomDep"></input></td>  
+                    <td><input type="text" value="<%=NomDep%>" name="txtNomDep" required onkeypress=" return soloLetras(event)"></input></td>  
                 </tr>
                 <tr>
                     <td>Municipio</td>  
-                    <td><input type="text" value="<%=NomMun%>" name="txtNomMun"></input></td>  
+                    <td><input type="text" value="<%=NomMun%>" name="txtNomMun" required onkeypress=" return soloLetras(event)"></input></td>  
                 </tr>
                 <tr>
 

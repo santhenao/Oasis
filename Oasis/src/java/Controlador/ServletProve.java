@@ -78,7 +78,7 @@ public class ServletProve extends HttpServlet {
                 } else {
                     request.setAttribute("error", "<script> alert('Registro Fallido')</script>");
                 }
-                request.getRequestDispatcher("AgregarProve.jsp").forward(request, response);
+                request.getRequestDispatcher("ListarProve.jsp").forward(request, response);
                 break;
             
             case 2://Modificar

@@ -31,6 +31,14 @@ public class BeanUsu {
         this.FechNacimUsu = FechNacimUsu;
         this.CorreoUsu = CorreoUsu;
     }
+     public BeanUsu( String Usu, String Contraseña) {
+  
+      
+        this.Usu = Usu;
+        this.Contraseña = Contraseña;
+
+    
+    }
 
     public int getIdUsu() {
         return idUsu;

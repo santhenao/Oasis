@@ -10,6 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
+           <script src="JqueryUI/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="JqueryUI/jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+        <link href="JqueryUI/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css"/>
+      
+        <script src="js/EstadoProveedor.js" type="text/javascript"></script>
+        
+        <!validaciones-->
+        
              <!-- Latest compiled and minified CSS -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -38,7 +46,7 @@
                
                 <tr>
                     <td>Nombre:</td>
-                     <td>    <input type="text" name="txtNomEstaPedProve"></td>
+                     <td>    <input type="text" name="txtNomEstaPedProve"  required onkeypress=" return soloLetras(event)"></td>
                    
                 </tr>
                 <tr>

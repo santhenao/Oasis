@@ -8,8 +8,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+     
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
+         <script src="JqueryUI/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="JqueryUI/jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+        <link href="JqueryUI/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="js/DepMun.js" type="text/javascript"></script>
+        
+        <!validaciones-->
         
               <!-- Latest compiled and minified CSS -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,8 +32,7 @@
         <title>Agregar</title>
     </head>
     <body>   
-     
- 
+
     <form method="post" action="DepMun">
         <jsp:include page="Menu.jsp"></jsp:include>
             
@@ -35,15 +41,15 @@
             <table class="table-bordered">
                 <tr>
                     <td>Codigo:</td>
-                    <td><input type="text" name="txtidDepMun"></td>
+                    <td><input type="text" name="txtidDepMun"  id="DepMun" name="txtidDepMun"  autofocus="idDepMun" required  autocomplete="on"  onkeypress="return SoloNumeros(event)"></td>
                 </tr>
                 <tr>
                     <td>Nombre Departamento:</td>
-                    <td>    <input type="text" name="txtNomDep">   </td>
+                    <td>    <input type="text" name="txtNomDep"  id="NomDep" name="txtNomDep" required autocomplete="on"   onselect  onkeypress="return soloLetras(event)">   </td>
                 </tr>
                  <tr>
                     <td>Nombre Municipio:</td>
-                     <td>   <input type="text" name="txtNomMun"></td>
+                     <td>   <input type="text" name="txtNomMun"  id="NomMun" name="txtNomMun" required onkeypress="return  soloLetras(event)"></td>
                 </tr>
                  <tr>
                     <td></td>
@@ -59,7 +65,10 @@
         
       
     </form>
-     <%if (request.getAttribute("exito")!= null ){ %>
+     <%
+       
+        
+        if (request.getAttribute("exito")!= null ){ %>
             ${exito}
             <%}
             else if (request.getAttribute("error")!=null) {%>

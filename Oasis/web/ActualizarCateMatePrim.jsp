@@ -11,6 +11,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        
+          
+        <script src="JqueryUI/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="JqueryUI/jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+        <link href="JqueryUI/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css"/>
+      
+        <script src="js/EstadoProveedor.js" type="text/javascript"></script>
         <title>Actualizar</title>
     </head>
     <body>
@@ -50,15 +58,15 @@
 
                 <tr>
                     <td>Codigo:</td>  
-                    <td><input type="text" value="<%=idCateMatePrim%>" name="txtidCateMatePrim" readonly=""></input></td>  
+                    <td><input type="text" value="<%=idCateMatePrim%>" name="txtidCateMatePrim" readonly="readonly" style="background-color:#DBDBDB " ></input></td>  
                 </tr>
                 <tr>
                     <td>Nombre:</td>  
-                    <td><input type="text" value="<%=NomCateMatePrim%>" name="txtNomCateMatePrim"></input></td>  
+                    <td><input type="text" value="<%=NomCateMatePrim%>" name="txtNomCateMatePrim" required onkeypress="  return soloLetras(event)"></input></td>  
                 </tr>
                 <tr>
                     <td>Descripcion</td>  
-                    <td><input type="text" value="<%=DescriCateMatePrim%>" name="txtDescriCateMatePrim"></input></td>  
+                    <td><input type="textarea" value="<%=DescriCateMatePrim%>" name="txtDescriCateMatePrim" required onkeypress></input></td>  
                 </tr>
                 <tr>
 

@@ -17,8 +17,10 @@
         
         
         
-        
-          
+          <script src="JqueryUI/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="JqueryUI/jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+        <link href="JqueryUI/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css"/>
+       
         
         
         
@@ -49,6 +51,8 @@
             <th>Ingreso</th>
             <th>Vencimiento</th>
             <th>Cantidad</th>
+             <th>Accion</th>
+            
         </tr>
         <%
             int c=0;
@@ -77,6 +81,15 @@
                   <td><%=BMatePrim.getFechIngrMatePrim()%></td>
                   <td><%=BMatePrim.getFechVencMatePrim()%></td>
                   <td><%=BMatePrim.getCantMatePrim()%></td>
+                  <td>
+                      <form method="POST" action="ActualizarMatePrim.jsp">
+                                         
+                                           <input type="hidden" name="idMatePrim" value="<%=BMatePrim.getIdMatePrim()%>"><button type="submit">Modificar</button> 
+                                 
+                                 </form>
+                                 
+                  </td>
+                  
               </tr>
             
             

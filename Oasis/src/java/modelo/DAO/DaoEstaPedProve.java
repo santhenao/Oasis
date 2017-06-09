@@ -77,7 +77,7 @@ public class DaoEstaPedProve extends Conexion implements InterfaceCRUD{
              }
         } catch (Exception e) {
             System.out.println(e.getMessage());
-             Logger.getLogger(DaoDepMun.class.getName()).log(Level.SEVERE, null, e);
+             Logger.getLogger(DaoEstaPedProve.class.getName()).log(Level.SEVERE, null, e);
         }    
         
         

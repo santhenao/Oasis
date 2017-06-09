@@ -7,6 +7,9 @@
 <%@page import="modelo.BEAN.BeanDepMun"%>
 
 
+
+
+ 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%!int Parametro;
@@ -32,6 +35,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+         <script src="JqueryUI/jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="JqueryUI/jquery-ui-1.12.1/jquery-ui.js" type="text/javascript"></script>
+        <link href="JqueryUI/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <script src="js/Proveedor.js" type="text/javascript"></script>
         <title>Actualizar</title>
     </head>
 
@@ -92,32 +100,32 @@
                 </tr>
                 <tr>
                     <td>Nombre Compañia:</td>  
-                    <td><input type="text" value="<%=NomCompProve%>" name="txtNomCompProve"></input></td>  
+                    <td><input type="text" value="<%=NomCompProve%>" name="txtNomCompProve" required ></input></td>  
                 </tr>
                 <tr>
                     <td>NIT</td>  
-                    <td><input type="text" value="<%=NITProve%>" name="txtNITProve"></input></td>  
+                    <td><input type="number" value="<%=NITProve%>" name="txtNITProve" required  onkeypress="return SoloNumeros(event)"></input></td>  
                 </tr>
                
                 <tr>
                     <td>Telefono</td>  
-                    <td><input type="text" value="<%=TelfProve%>" name="txtTelfProve"></input></td>  
+                    <td><input type="number" value="<%=TelfProve%>" name="txtTelfProve" required onkeypress=" return tel(tel)"></input></td>  
                 </tr>
                 <tr>
                     <td>Correo</td>  
-                    <td><input type="text" value="<%=CorreoProve%>" name="txtCorreoProve"></input></td>  
+                    <td><input type="email" value="<%=CorreoProve%>" name="txtCorreoProve" required onkeypress=" return ValidarCorreo(event)"></input></td>  
                 </tr>
                 <tr>
                     <td>Direccion</td>  
-                    <td><input type="text" value="<%=DirecProve%>" name="txtDirecProve"></input></td>  
+                    <td><input type="text" value="<%=DirecProve%>" name="txtDirecProve" required ></input></td>  
                 </tr>
                  <tr>
                     <td>Nombre Contacto</td>  
-                    <td><input type="text" value="<%=NomProve%>" name="txtNomProve"></input></td>  
+                    <td><input type="text" value="<%=NomProve%>" name="txtNomProve" required onkeypress=" return soloLetras(event)"></input></td>  
                 </tr>
                 <tr>
                     <td>Apellido Contacto</td>  
-                    <td><input type="text" value="<%=ApellProve%>" name="txtApellProve"></input></td>  
+                    <td><input type="text" value="<%=ApellProve%>" name="txtApellProve"  required onkeypress=" return soloLetras(event)"></input></td>  
                 </tr>
                 <tr>
 

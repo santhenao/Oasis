@@ -4,11 +4,13 @@
     Author     : Santiagoth
 --%>
 
+<%@page import="modelo.BEAN.BeanUsu"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
-       
+      
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
         <title>MenuLocal</title>
         
@@ -35,7 +37,16 @@
           
         
         <div class="contenedor-menu">
-            <a class="btn-menu">Menu<i class="icono fa fa-bars"></i></a>
+             <%! private static final long SerialVersionUID = 1L; 
+       HttpSession misession;
+        BeanUsu Busu;  
+       %>
+      
+       <%
+        misession = (HttpSession)request.getSession();       
+        Busu = (BeanUsu)misession.getAttribute("Usu");
+       %>
+            <a class="btn-menu">Menu <%=Busu.getNomUsu()%><i class="icono fa fa-bars"></i></a>
             
             <ul class="menu">
                 <li><a href="Menu.jsp"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li> 
@@ -65,6 +76,13 @@
                     <ul>
                         <li ><a class="sublista" href="AgregarEstaPedProve.jsp">Agregar Estado</a></li>
                         <li ><a class="sublista" href="ListarEstaPedProve.jsp">Listar Estados</a></li>
+                         
+                    </ul>
+                </li>
+                    <li ><a ><i class="icono izquierda fa fa-user" aria-hidden="true"></i>Mi Session<i class="icono derecha fa fa-arrow-down" aria-hidden="true"></i></a>
+                    <ul>
+                        <li ><a class="sublista" href="VSession">Ver</a></li>
+                        <li ><a class="sublista" href="CSession">Cerrar</a></li>
                          
                     </ul>
                 </li> 

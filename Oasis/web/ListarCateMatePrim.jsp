@@ -12,6 +12,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+         
         <title>Listar</title>
     </head>
     <body>
@@ -25,7 +27,7 @@
        
              <table class="table">
                         <tr>
-                             <th>Codigo   </th>
+                           
                              <th>Nombre</th>   
                              <th>Descripcion</th>
                         </tr>
@@ -39,7 +41,7 @@
                         BCateMatePrim=ListaCateMatePrim.get(c);                        
                         %>
                         <tr>
-                             <td><%=BCateMatePrim.getIdCateMatePrim()%></td>
+                           
                              <td><%=BCateMatePrim.getNomCateMatePrim()%> </td>
                              <td><%=BCateMatePrim.getDescriCateMatePrim()%> </td>
                              <td><form action='ActualizarCateMatePrim.jsp' method='post'>

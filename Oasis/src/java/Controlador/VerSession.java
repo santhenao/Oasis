@@ -12,16 +12,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.BEAN.BeanCateMatePrim;
-import modelo.DAO.DaoCateMatePrim;
+import javax.servlet.http.HttpSession;
+import modelo.BEAN.BeanUsu;
 
 /**
  *
  * @author Santiagoth
  */
-@WebServlet(name = "ServletCateMatePrim", urlPatterns = {"/CateMatePrim"})
-public class ServletCateMatePrim extends HttpServlet {
-
+@WebServlet(name = "VerSession", urlPatterns = {"/VSession"})
+public class VerSession extends HttpServlet {
+      private static final long SerialVersionUID = 1L;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,48 +34,24 @@ public class ServletCateMatePrim extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       PrintWriter out = response.getWriter();
-       int Opcion = 0;
-       int idCateMatePrim=0;
-       String NomCateMatePrim=null;
-       String DescriCateMatePrim=null;
+        PrintWriter out = response.getWriter();
+         HttpSession  Session = (HttpSession)request.getSession();
+         BeanUsu BUsu =  (BeanUsu)Session.getAttribute("Usu");
+         
+         
+         out.print(BUsu.getUsu()+" ----- "+BUsu.getContraseña());
+         out.print("<a href='Menu.jsp'>RETORNAR</a>");
+         
        
-       idCateMatePrim =  Integer.parseInt(request.getParameter("txtidCateMatePrim"));
-       NomCateMatePrim = request.getParameter("txtNomCateMatePrim");
-       DescriCateMatePrim = request.getParameter("txtDescriCateMatePrim");
-       Opcion =  Integer.parseInt(request.getParameter("txtOpcion"));
-       
-       
-       BeanCateMatePrim BCateMatePrim = new BeanCateMatePrim(idCateMatePrim, NomCateMatePrim, DescriCateMatePrim);
-       DaoCateMatePrim DCateMatePrim =  new DaoCateMatePrim(BCateMatePrim);
-       
-       switch(Opcion){
-        
-            case 1://Agregar 
-                if (DCateMatePrim.Agregar()) {
-                    request.setAttribute("exito", "<script> alert('Registro Exitoso')</script>");                       
-                } else {
-                    request.setAttribute("error", "<script> alert('Registro Fallido')</script>");
-                }
-                request.getRequestDispatcher("ListarCateMatePrim.jsp").forward(request, response);
-                break;
+               
             
-            case 2://Modificar
-                if (DCateMatePrim.Modificar()) {
-                    request.setAttribute("exito", "<script> alert('Modificado Exitosamente')</script>");
-                } else {
-                    request.setAttribute("error", "<script> alert('Modificacion No Exitosamente')</script>");
-                }
-                request.getRequestDispatcher("ListarCateMatePrim.jsp").forward(request, response);
-                break;    
-                
-            
+         
+         
        
-        }
-        
-       
-       
-       
+         
+         
+         
+         
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
